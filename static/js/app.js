@@ -1,4 +1,4 @@
-// FUNCTION #1 of 5
+
 function buildCharts(selectedPatientID) {
     d3.json("static/js/data/samples.json").then(data => {
         console.log(data)
@@ -11,10 +11,7 @@ function buildCharts(selectedPatientID) {
         console.log(filteredsample)
 
         // Plot Bar Graph
-        //* Use `sample_values` as the values for the bar chart.
-        // * Use `otu_ids` as the labels for the bar chart.
-        // * Use `otu_labels` as the hovertext for the chart.
-        // convert the otu_id into string
+       
         var trace1 = {
             x: filteredsample.sample_values.slice(0, 10).reverse(),
             y: filteredsample.otu_ids.slice(0, 10).map(otu_id => `OTU #${otu_id}`).reverse(),           
@@ -28,11 +25,7 @@ function buildCharts(selectedPatientID) {
         Plotly.newPlot('barDiv', data, layout);
 
         // Plot Bubble chart
-        // * Use `otu_ids` for the x values.
-        // * Use `sample_values` for the y values.        
-        // * Use `sample_values` for the marker size.        
-        // * Use `otu_ids` for the marker colors.        
-        // * Use `otu_labels` for the text values.
+        
         var trace1 = {
             x: filteredsample.otu_ids,
             y: filteredsample.sample_values,
@@ -70,7 +63,7 @@ function buildCharts(selectedPatientID) {
     })
 };
 
-// FUNCTION #2 of 5 - Populate demographic information
+// demographic information
 function populateDemographicInfo(selectedPatientID) {
     d3.json("samples.json").then(data => {
         var metadata = data.metadata;
@@ -83,14 +76,14 @@ function populateDemographicInfo(selectedPatientID) {
     })
 }
 
-// FUNCTION #3 of 5
+//
 function optionChanged(selectedPatientID) {
     console.log(selectedPatientID);
     buildCharts(selectedPatientID);
     populateDemographicInfo(selectedPatientID);
 }
 
-// FUNCTION #4 of 5 - Dropdown element
+// dropdown element
 function populateDropdown() {
     var dropdown = d3.select("#selDataset")
     d3.json("samples.json").then(data => {
@@ -101,7 +94,7 @@ function populateDropdown() {
     })
 }
 
-// FUNCTION #5 of 5
+// 
 function buildWebsiteOnStartup() {
     populateDropdown();
     d3.json("samples.json").then(data => {
