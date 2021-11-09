@@ -61,7 +61,7 @@ function buildCharts(selectedPatientID) {
                 title: { text: "Weekly Belly Button Washing Frequency" },
                 type: "indicator",
                 mode: "gauge+number",
-                delta: { reference: 400, increasing: { color: "RebeccaPurple" } },
+                delta: { reference: 400, increasing: { color: "LightSkyBlue" } },
                 gauge: { axis: { range: [null, 10] } }
             }
         ];
