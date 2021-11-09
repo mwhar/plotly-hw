@@ -46,7 +46,7 @@ function buildCharts(selectedPatientID) {
         };
         var data = [trace1];
         var layout = {
-            title: 'OTU_IDS',
+            title: 'OTU IDS',
             showlegend: false,
             height: 600,
             width: 1000
